@@ -1,0 +1,39 @@
+{
+  "name": "recurly-webhook-server",
+  "version": "1.0.0",
+  "description": "Server to handle Recurly webhook HTTP requests",
+  "keywords": [
+    "recurly",
+    "webhook"
+  ],
+  "author": {
+    "name": "Tom Kirkpatrick",
+    "email": "tkirkpatrick@fullcube.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/fullcube/recurly-webhook-server.git"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "basic-auth": "^1.0.0",
+    "debug": "2.x",
+    "xml2js": "^0.4.9"
+  },
+  "devDependencies": {
+    "chai": "latest",
+    "jscs": "1.13.x",
+    "jshint": "latest",
+    "mocha": "latest",
+    "mocha-sinon": "latest",
+    "sinon": "latest",
+    "sinon-chai": "latest"
+  },
+  "scripts": {
+    "lint": "jscs lib && jshint lib",
+    "test": "mocha -R spec --timeout 10000 test/server.js",
+    "test:watch": "npm run test -- -w",
+    "pretest": "npm run lint"
+  }
+}
