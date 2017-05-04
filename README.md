@@ -1,5 +1,7 @@
 # Recurly webhook server
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/fullcube/recurly-webhook-server.svg)](https://greenkeeper.io/)
+
 Webhooks in [Recurly](https://www.recurly.com) notify you when content in your space has changed.
 
 Recurly webhook server is a lightweight server to handle these notifications:
