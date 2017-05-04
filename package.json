@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "chai": "latest",
-    "jscs": "1.13.x",
+    "jscs": "~3.0.7",
     "jshint": "latest",
     "mocha": "latest",
     "mocha-sinon": "latest",
