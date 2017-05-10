@@ -22,7 +22,10 @@ $ npm install recurly-webhook-server
 var server = require('recurly-webhook-server')({
   path: '/',
   username: 'user',
-  password: 'pass'
+  password: 'pass',
+  host: '127.0.0.1',
+  port: 3000,
+  logger: console
 });
 
 // Attach handlers to Recurly webhooks
@@ -30,8 +33,8 @@ server.on('Recurly.new_account_notification', function(req){
   console.log('A new account was created!');
 });
 
-// Start listening for requests on port 3000
-server.listen(3000, function(){
+// Start listening for requests
+server.listen(function(){
   console.log('Recurly webhook server running on port ' + 3000)
 });
 
@@ -55,32 +58,36 @@ where:
 - **path**: the path you want the server to listen on, default: '/'
 - **username**: the username you expect the request to contain, default: ''
 - **password**: the password you expect the request to contain, default: ''
+- **host**: the host to listen on, default: '0.0.0.0'
+- **port**: the port you want to listen on, default: 3420
+- **logger**: a logger object which support .log and .error, default: noop
 
-So to start a server on `localhost:3000` without authentication, you can:
+So to start a server on the default `0.0.0.0:3420` without authentication, you can:
 
 ```javascript
 // Create server with default options
 var server = require('recurly-webhook-server')();
 
-// Start listening for requests on port 3000
-server.listen(3000, function(){
-  console.log('Recurly webhook server running on port ' + 3000)
+// Start listening for requests on port 3420
+server.listen(function(){
+  console.log('Recurly webhook server running on port ' + 3420)
 });
 ```
 
-and to start a server on `localhost:3000/webhooks` with authentication, you can:
+and to start a server on `localhost:3420/webhooks` with authentication & logging to the console, you can:
 
 ```javascript
 // Create server with default options
 var server = require('recurly-webhook-server')({
   path: '/webhooks',
   username: 'user',
-  password: 'pass'
+  password: 'pass',
+  logger: console
 });
 
-// Start listening for requests on port 3000
-server.listen(3000, function(){
-  console.log('Recurly webhook server running on port ' + 3000)
+// Start listening for requests on port 3420
+server.listen(function(){
+  console.log('Recurly webhook server running on port ' + 3420)
 });
 ```
 
